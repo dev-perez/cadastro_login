@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Editar Dados Cadastrais</h1>
+{% if current_user.is_authenticated %}
+<form action="/usuario/editar/{{current_user.id}}" method="post">
+    <div class="form-group">
+        {{ form.email.label }}<br>
+        {{ form.email(class="form-control", value=current_user.email) }}
+    </div>
+    <div class="form-group">
+        {{ form.nome.label }}<br>
+        {{ form.nome(class="form-control", value=current_user.nome) }}
+    </div>
+    <div class="form-group">
+        {{ form.pis.label }}<br>
+        {{ form.pis(class="form-control", value=current_user.pis) }}
+    </div>
+    <div class="form-group">
+        {{ form.cpf.label }}<br>
+        {{ form.cpf(class="form-control", value=current_user.cpf) }}
+    </div>
+    <button type="submit" class="btn btn-default">Salvar</button>
+
+</form>
+{% endif %}
+{% endblock %}
