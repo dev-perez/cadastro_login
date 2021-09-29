@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cadastro&Login</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
     <div style="text-align:center">
     </div>
     <div class="container">
       <div class="page-header">
           <h2> Cadastro de usuário</h2>
       </div>
-      <form action="/cadastro" method="POST">
+      <form action="{{ url_for('cadastro') }}" method="POST">
         <fieldset>
           <div class="form-group">
             <label for="nome">Nome</label>
@@ -65,9 +59,9 @@
           </div>
           <div style="text-align:center">
           <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
+          <a href="{{ url_for('index') }}"><input type="button" class="btn btn-default" value="Voltar"></a>
         </div>
         </fieldset>
       </form>
     </div>
-</body>
-</html>
+{% endblock %}

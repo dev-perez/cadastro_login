@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="text-align:center">
+<h1>Lista de Usuários</h1>
+<div style="text-align:center">
+        <hr>
+        <table>
+            <tr>
+                <td>ID</td>
+                <td>Nome</td>
+                <td>Email</td>
+                <td>CPF</td>
+                <td>Pis</td>
+                <td>Senha</td>
+                <td>Pais</td>
+                <td>Estado</td>
+                <td>Municipio</td>
+                <td>Cep</td>
+                <td>Rua</td>
+                <td>Numero</td>
+                <td>Complemento</td>
+            </tr>
+            <br>
+            {% for usuario in usuarios %}
+            <tr>
+                <td>{{ usuario.id }}</td>
+                <td>{{ usuario.nome }}</td>
+                <td>{{ usuario.email }}</td>
+                <td>{{ usuario.cpf }}</td>
+                <td>{{ usuario.pis }}</td>
+                <td>{{ usuario.senha }}</td>
+                <td>{{ usuario.pais }}</td>
+                <td>{{ usuario.estado }}</td>
+                <td>{{ usuario.municipio }}</td>
+                <td>{{ usuario.cep }}</td>
+                <td>{{ usuario.rua }}</td>
+                <td>{{ usuario.numero }}</td>
+                <td>{{ usuario.complemento }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        </div>
+        <br>
+        <a href="{{ url_for('logado') }}"><input type="button" class="btn btn-default" value="Voltar"></a>
+    </div>
+{% endblock%}
