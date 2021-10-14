@@ -1,21 +1,22 @@
 from app import db
 
+
 class Usuarios(db.Model):
     __tablename__ = "usuarios"
 
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    nome = db.Column(db.String)
-    email = db.Column(db.String)
-    cpf = db.Column(db.String)
-    pis = db.Column(db.String)
-    senha = db.Column(db.String)
-    pais = db.Column(db.String)
-    estado = db.Column(db.String)
-    municipio = db.Column(db.String)
-    cep = db.Column(db.String)
-    rua = db.Column(db.String)
-    numero = db.Column(db.String)
-    complemento = db.Column(db.String)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
+    nome = db.Column(db.String(30), nullable=False)
+    email = db.Column(db.String(30), unique=True, nullable=False)
+    cpf = db.Column(db.String(11), unique=True, nullable=False)
+    pis = db.Column(db.String(11), unique=True, nullable=False)
+    senha = db.Column(db.String(32), nullable=False)
+    pais = db.Column(db.String(15), nullable=False)
+    estado = db.Column(db.String(2), nullable=False)
+    municipio = db.Column(db.String(30), nullable=False)
+    cep = db.Column(db.String(8), nullable=False)
+    rua = db.Column(db.String(15), nullable=False)
+    numero = db.Column(db.SmallInteger, nullable=False)
+    complemento = db.Column(db.String(10), nullable=True)
 
     @property
     def is_authenticated(self):

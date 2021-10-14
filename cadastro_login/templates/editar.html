@@ -7,7 +7,9 @@
       <div class="page-header">
         <h2>Editar Dados Cadastrais</h2>
       </div>
-    <a href="{{ url_for('excluir', id=current_user.id) }}"><input type="button" class="btn btn-default" value="Remover usuário"></a>
+      <a href="{{ url_for('excluir', id=current_user.id) }}" class="btn btn-danger">Remover usuário</a>
+      <a href="{{ url_for('editar_senha') }}" class="btn btn-default">Alterar senha</a>
+
       <form action="{{ url_for('editar', id=current_user.id) }}" method="POST">
         <fieldset>
           <div class="form-group">
@@ -25,10 +27,6 @@
           <div class="form-group">
             <label for="pis">PIS</label>
             <input type="text" id="pis" name="pis" class="form-control" value="{{ current_user.pis }}">
-          </div>
-          <div class="form-group">
-            <label for="senha">Senha</label>
-            <input type="password" id="senha" name="senha" class="form-control" value="{{ current_user.senha }}">
           </div>
           <div class="form-group">
             <label for="pais">País</label>
